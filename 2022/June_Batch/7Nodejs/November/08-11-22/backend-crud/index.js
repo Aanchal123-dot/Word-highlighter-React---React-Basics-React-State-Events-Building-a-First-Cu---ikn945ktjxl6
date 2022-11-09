@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const global = require('./helper');
 
 let employee = [{
     fullName: "akash",
@@ -27,11 +27,24 @@ app.use((req,res,next)=>{
     return next();
 });
 
+
+
 app.get('', (req, res) => {
+    let result =employee;
+    if(req.query.fullName){
+        result = global.filterDetails(result,'fullName',req.query.fullName);
+    }
+    if(req.query.age){
+        result = global.filterDetails(result,'age',Number(req.query.age));
+    }
+    if(req.query.location){
+        result = global.filterDetails(result,'location',req.query.location);
+    }
+    console.log(result);
     console.log(req.query);
     res.status(200).json({
         message:"successfully sent",
-        list:employee
+        list:result
     });
 });
 
