@@ -26,6 +26,12 @@ app.get('/table', (req, res) => {
 });
 
 
+
+app.post('/uploadDetails',(req,res)=>{
+       console.log("resuest");
+       res.render('success.ejs');
+});
+
 app.listen(8080, () => {
     console.log("server is running");
 })
