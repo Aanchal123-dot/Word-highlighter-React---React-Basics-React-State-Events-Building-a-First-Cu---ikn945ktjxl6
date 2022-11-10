@@ -11,6 +11,11 @@ function App() {
   const [getError,setError]=useState('');
 
   useEffect(()=>{
+   
+    axios.get("http://localhost:8080/setCookie").then((response)=>{
+      console.log("cookies");
+      console.log(response);
+    });
     initialDataList();
   },[]);
 

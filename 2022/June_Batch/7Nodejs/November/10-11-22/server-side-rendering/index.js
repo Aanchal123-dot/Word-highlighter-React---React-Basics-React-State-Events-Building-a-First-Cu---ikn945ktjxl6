@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const bodyParser= require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 const employee = [{
@@ -28,8 +30,8 @@ app.get('/table', (req, res) => {
 
 
 app.post('/uploadDetails',(req,res)=>{
-       console.log("resuest");
-       res.render('success.ejs');
+       console.log("upload",req.body);
+       res.render('success.ejs',req.body);
 });
 
 app.listen(8080, () => {
