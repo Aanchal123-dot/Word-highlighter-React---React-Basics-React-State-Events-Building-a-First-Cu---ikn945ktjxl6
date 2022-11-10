@@ -2,19 +2,30 @@ const express = require('express');
 const app = express();
 
 
-app.get('',(req,res)=>{
-       res.render('home.ejs');
+const employee = [{
+    firstName: "akash",
+    age: 45
+}, {
+    firstName: "suresh",
+    age: 22
+}, {
+    firstName: "harry",
+    age: 22
+}];
+
+app.get('', (req, res) => {
+    res.render('home.ejs');
 });
 
-app.get('/login',(req,res)=>{
+app.get('/login', (req, res) => {
     res.render('login.ejs');
 });
 
-app.get('/table',(req,res)=>{
-    res.render('table.ejs',{companyName:"Newton School"});
+app.get('/table', (req, res) => {
+    res.render('table.ejs', { companyName: "Newton School", name: "akash suresh" ,list:employee});
 });
 
 
-app.listen(8080,()=>{
+app.listen(8080, () => {
     console.log("server is running");
 })
