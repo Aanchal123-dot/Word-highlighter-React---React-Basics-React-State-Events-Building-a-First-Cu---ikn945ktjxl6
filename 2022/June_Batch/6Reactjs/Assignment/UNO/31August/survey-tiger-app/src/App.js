@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import QuestionType from './component/QuestionType/QuestionType';
 
 
 function App() {
+  const [getQuestionType,setQuestionType] = useState([]);
+
+  useEffect(()=>{
+    getinitialDetails();
+  },[]);
+
+  const getinitialDetails=()=>{
+    setQuestionType(['Multi-select','single select']);
+  }
+
   return (
      <div className="container">
          <div className="row">
@@ -29,7 +40,7 @@ function App() {
          </div>
          <div className="row">
            <div className="col-12 position-center">
-               <QuestionType/>
+               <QuestionType questionType={getQuestionType}/>
            </div>
          </div>
      </div>
