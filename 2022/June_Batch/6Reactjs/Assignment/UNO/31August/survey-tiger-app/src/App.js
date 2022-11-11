@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import QuestionType from './component/QuestionType/QuestionType';
-
+import {singleQuestionType,multiQuestionType} from './helper/FormingObject';
 
 function App() {
 
@@ -10,8 +10,8 @@ function App() {
   const [questionCreation,setQuestionCreation] = useState([]);
 
   useEffect(()=>{
-    
-  },[]);
+    console.log(questionCreation);
+  },[questionCreation]);
 
   const createSurvey=()=>{
     setStatus(true);
@@ -19,7 +19,13 @@ function App() {
   }
 
   const selectedQuestionType=(inputType)=>{
-       console.log(inputType)
+       console.log(inputType);
+       if(inputType =='single-select'){
+        setQuestionCreation([...questionCreation,singleQuestionType]);
+       }
+       if(inputType == 'multi-select'){
+        setQuestionCreation([...questionCreation,multiQuestionType])
+       }
   }
 
 
