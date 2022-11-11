@@ -49,9 +49,10 @@ app.get('', (req, res) => {
 });
 
 app.get("/setCookie",(req,res)=>{
-    res.cookie('username','encrypted cookie string Value');
+    res.cookie("firstName","akash");
     res.send('Cookie have been saved successfully');
 });
+
 
 app.get('/:id', (req, res) => {
     console.log(req.params.id);
@@ -68,6 +69,9 @@ app.get('/:id', (req, res) => {
         });  
     }
 });
+
+
+
 
 
 

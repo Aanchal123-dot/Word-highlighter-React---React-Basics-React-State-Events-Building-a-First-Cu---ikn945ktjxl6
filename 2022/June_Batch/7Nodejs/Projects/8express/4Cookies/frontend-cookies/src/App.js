@@ -1,15 +1,15 @@
 import {useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-
+import Cookies from 'js-cookie';
 
 function App() {
 
   useEffect(()=>{
 
-    axios.get('http://localhost:8000/setcookie').then((response)=>{
+    axios.get('http://localhost:8000/getcookie').then((response)=>{
       const cookieData = document.cookie;
-       console.log(cookieData)
+       console.log(Cookies.get('username'))
     })
   },[]);
 

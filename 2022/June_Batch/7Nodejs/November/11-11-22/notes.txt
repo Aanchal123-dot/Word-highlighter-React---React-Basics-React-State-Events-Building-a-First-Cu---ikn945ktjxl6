@@ -1,0 +1,18 @@
+Browser Side Storage or client side:
+1.local Storage
+  //It can be set from frontend side only.
+  //This data is permanent once you close the tab as well. Manually we need to delete this data.
+  //While page refresh or after shutdown of your system still you need to proceed with login credentials.
+  example:gmail web,watsapp web,telegram web
+2.session Storage
+  //It can be set from both frontend and backend side.
+  //This data is not permanent once you close the tab.The data will be deleted automatically.
+  example:banking website.
+3.cookies
+   //It can be set from both frontend and backend side.
+   //This data is not permanent similar to session storage.
+   //cookies can store very much less data compare to session storage. 
+   //Mostly used in application where frontend and backend are written together 
+   //applications with nodejs with ejs or jsp or servlet.
+   //Mostly in server side rendering application.
+   

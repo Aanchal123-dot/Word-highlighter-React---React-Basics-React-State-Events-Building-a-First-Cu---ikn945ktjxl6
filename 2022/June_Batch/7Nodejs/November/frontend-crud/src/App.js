@@ -13,7 +13,8 @@ function App() {
   useEffect(()=>{
    
     axios.get("http://localhost:8080/setCookie").then((response)=>{
-      console.log("cookies");
+      const cookieData = document.cookie;
+       console.log(cookieData)
       console.log(response);
     });
     initialDataList();
