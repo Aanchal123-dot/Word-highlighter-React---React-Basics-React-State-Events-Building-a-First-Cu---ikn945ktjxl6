@@ -15,8 +15,14 @@ function App() {
 
   const createSurvey=()=>{
     setStatus(true);
-    setQuestionType(['Multi-select','single select']);
+    setQuestionType(['select question type','multi-select','single-select']);
   }
+
+  const selectedQuestionType=(inputType)=>{
+       console.log(inputType)
+  }
+
+
 
   return (
      <div className="container">
@@ -44,7 +50,7 @@ function App() {
          </div>}
          {getStatus && <div className="row">
            <div className="col-12 position-center">
-               <QuestionType questionType={getQuestionType}/>
+               <QuestionType questionType={getQuestionType} selectedQuestionType={selectedQuestionType}/>
            </div>
          </div>}
      </div>
