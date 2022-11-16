@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import QuestionType from './component/QuestionType/QuestionType';
 import {singleQuestionType,multiQuestionType} from './helper/FormingObject';
-
+import SingleSelect from './component/custom/SingleSelect/SingleSelect';
+import MultiSelect from './component/custom/MultiSelect/MultiSelect';
+import {QuestionTypeLabel} from './helper/constant';
 function App() {
 
   const [getQuestionType,setQuestionType] = useState([]);
   const [getStatus,setStatus] = useState(false);
   const [questionCreation,setQuestionCreation] = useState([]);
+  const [getSelectionType,setSelectionType] = useState('');
 
   useEffect(()=>{
     console.log(questionCreation);
@@ -20,10 +23,12 @@ function App() {
 
   const selectedQuestionType=(inputType)=>{
        console.log(inputType);
-       if(inputType =='single-select'){
+       if(inputType === 'single-select'){
+        setSelectionType('single-select');
         setQuestionCreation([...questionCreation,singleQuestionType]);
        }
-       if(inputType == 'multi-select'){
+       if(inputType === 'multi-select'){
+        setSelectionType('multi-select');
         setQuestionCreation([...questionCreation,multiQuestionType])
        }
   }
@@ -59,6 +64,8 @@ function App() {
                <QuestionType questionType={getQuestionType} selectedQuestionType={selectedQuestionType}/>
            </div>
          </div>}
+         {getStatus && getSelectionType === QuestionTypeLabel.single_type  && <SingleSelect/>}
+         {getStatus && getSelectionType === QuestionTypeLabel.multi_type && <MultiSelect/>}
      </div>
   );
 }
